@@ -1,9 +1,22 @@
 <template>
-  <div></div>
+  <div>
+
+  </div>
 </template>
 
-<script>
-export default {}
+<script setup>
+import{ref, Created} from 'vue'
+const sqil = ref('')
+async function getsquil(){
+  let res = await fetch('url')
+  let data = await res.json()
+  sqil.value = data.results
+}
+Created(()=>{
+  getsqil()
+})
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+
+</style>
