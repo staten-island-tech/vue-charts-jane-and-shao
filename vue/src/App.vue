@@ -2,11 +2,6 @@
   <BarChart />
 </template>
 
-<script>
-/* import BarChart from 'path/to/component/BarChart'
-
-export default {
-  name: 'App',
-  components: { BarChart }
-} */
+<script setup>
+import BarChart from './components/BarChart.vue'
 </script>
