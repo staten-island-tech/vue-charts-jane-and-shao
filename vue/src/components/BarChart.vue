@@ -23,7 +23,7 @@ export default {
     return {
       chartData: {
         labels: ['January', 'February', 'March'],
-        datasets: [{ data: [40, 20, 102] }]
+        datasets: [{ data: [0, 0, 0] }]
       },
       chartOptions: {
         responsive: true
