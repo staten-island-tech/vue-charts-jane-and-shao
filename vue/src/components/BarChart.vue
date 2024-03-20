@@ -22,8 +22,8 @@ export default {
   data() {
     return {
       chartData: {
-        labels: ['January', 'February', 'March'],
-        datasets: [{ data: [0, 0, 0] }]
+        labels: ['Black', 'Brown', 'Cinnamon'],
+        datasets: [{ data: [790, 2754, 287] }]
       },
       chartOptions: {
         responsive: true
