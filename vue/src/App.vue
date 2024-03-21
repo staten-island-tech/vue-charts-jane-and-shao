@@ -1,5 +1,4 @@
 <template>
-  <BarChart />
   <HomeView></HomeView>
 </template>
 
