@@ -1,10 +1,10 @@
 <template>
-  <Bar id="my-chart-id" :options="chartOptions" :data="chartData" v-if="loaded"/>
+  <Bar id="my-chart-id" :options="chartOptions" :data="chartOptions" v-if="loaded"/>
 </template>
 
 
 <script>
-import { Bar } from 'vue-chartjs'
+import { Bar, getDatasetAtEvent } from 'vue-chartjs'
 import {
   Chart as ChartJS,
   Title,
@@ -24,25 +24,38 @@ export default {
   components: { Bar },
   data: () => ({
     loaded: false,
-    chartData: null,
-    chartOptions: {} 
+    // chartData: null,
+    chartOptions: {
+      labels: [ ],
+      datasets:[ ]
+    }
   }),
-  async mounted() {
+mounted() {
+  async function getData(){
     this.loaded = false;
 
 
     try {
-      const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json');
-      if (response.ok) {
-        const data = await response.json();
-        this.chartData = data;
-        this.loaded = true;
-      } else {
-        console.error('Failed to fetch data:', response.status);
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
+      const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json?limit=10');
+      let data = await response.json();
+      const rabies = []
+        data.forEach((sq)=>
+        rabies.push(sq.rabies))
+        this.chartOptions.labels = rabies
+        this.chartOptions.datasets = [20, 39123, 73, 27]
+        
+    } catch (e) {
+      console.error(e)
     }
+    
+    this.loaded = true 
   }
+  getData()
 }
+
+}
+
+  
 </script>
+
+
