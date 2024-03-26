@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { Bar } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -22,8 +22,8 @@ export default {
   data() {
     return {
       chartData: {
-        labels: ['Black', 'Brown', 'Cinnamon'],
-        datasets: [{ data: [0, 0, 0] }]
+        labels: colors,
+        datasets: [{ data: colorNumbers }]
       },
       chartOptions: {
         responsive: true
@@ -45,11 +45,15 @@ const colors = []
 const colorNumbers = []
 for (let i = 0; i < squirrel.value.length; i++) {
   if (
-    squirrel.value[i].hasOwnProperty(primary_fur_color) &&
+    squirrel.value[i].hasOwnProperty('primary_fur_color') &&
     !colors.includes(squirrel.value[i].primary_fur_color)
   ) {
     colors.push(squirrel.value[i].primary_fur_color)
     colorNumbers.push(1)
+  } else if (squirrel.value[i].hasOwnProperty('primary_fur_color')) {
+    let index = colors.indexOf(squirrel.value[i].primary_fur_color)
+    colorNumbers[index]++
   }
 }
+console.log(colorNumbers)
 </script>
