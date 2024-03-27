@@ -1,7 +1,7 @@
 <template>
-    <Doughnut :data="chartData" :options="options" />
+  <Doughnut :data="chartData" :options="options" />
 </template>
-  
+
 <script lang="ts">
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'vue-chartjs'
@@ -10,19 +10,15 @@ import { Doughnut } from 'vue-chartjs'
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 export default {
-    name: 'App',
+    name: 'DoughChart',
     components: {
         Doughnut
     },
     data() {
+        return{
         chartData: {
             labels: colors,
-                datasets: [
-                    {
-                        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-                        data: colornumbers
-                    }
-                ]
+                datasets: [{data: colornumbers}]
         },
 
         const options = {
@@ -31,5 +27,6 @@ export default {
         }
 
     }
+}
 }
 </script>
