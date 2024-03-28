@@ -46,4 +46,5 @@ for (let i = 0; i < squirrel.value.length; i++) {
     let index = ages.indexOf(squirrel.value[i].age)
     ageNumbers[index]++
   }
+}
 </script>
