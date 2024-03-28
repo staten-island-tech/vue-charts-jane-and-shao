@@ -23,7 +23,10 @@ export default {
     return {
       chartData: {
         labels: colors,
-        datasets: [{ data: colorNumbers }]
+        datasets: [{
+            backgroundColor: ['#878787', '#381111', '#000000'],
+            data: colorNumbers }],
+            label: 'colors'
       },
       chartOptions: {
         responsive: true

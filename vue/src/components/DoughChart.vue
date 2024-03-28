@@ -1,5 +1,6 @@
 <template>
-  <Doughnut :data="chartData" :options="options" />
+  <div class="donutChart">  <Doughnut :data="chartData" :options="options" /></div>
+
 </template>
 
 <script>
@@ -16,11 +17,15 @@ export default {
     return {
       chartData: {
         labels: ages,
-        datasets: [{ data: ageNumbers }]
+        datasets: [
+          {
+            backgroundColor: ['#42b3f5', '#871a50'],
+             data: ageNumbers }]
       },
 
       chartOptions: {
         responsive: true,
+        backgroundColor: ['#871a50'],  
         maintainAspectRatio: false
       }
     }
